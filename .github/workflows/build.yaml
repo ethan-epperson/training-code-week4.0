@@ -11,7 +11,7 @@ jobs:
 
 name: cibuild
 
-  on: push
+on: push
 
 
 
