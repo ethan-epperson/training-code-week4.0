@@ -20,7 +20,7 @@ jobs:
       - run: |
           dotnet sonarscanner begin -o:'ethan-epperson' -k:'ethan-epperson_training-code-week4.0' -d:sonar.login='fc4025fdfb1d9417f909c8911891903639b92e49' -d:sonar.host.url='https://sonarcloud.io'
           dotnet build
-          dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover
+          dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --loger trx
           dotnet sonarscanner end -d:sonar.login='fc4025fdfb1d9417f909c8911891903639b92e49'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
