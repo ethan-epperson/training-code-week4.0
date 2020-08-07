@@ -4,8 +4,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.1
       - run: dotnet build
-  #test:
-  #analyze:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2.3.1
+      - run: dotnet test -p:CollectCoverage=true
+
+#  analyze:
+#    needs: [build, test]
+#    runs-on: ubuntu-20.04
+#    steps:
+#      - uses: actions/checkout@v2.3.1
+#      - run: dotnet tool install --global dotnet-sonarscanner
+#      - run: |
+#          dotnet sonarscanner begin -0:'THE NAME OF MY REPOSITORY' -k:'THE NAME OF MY KEY' -d:sonar.login='THE VAULE OF TOKEN'
+#          dotnet build
+#          dotnet test -p:CollectCoverage=true
+#          dotnet sonarscanner end -d:sonar.login='THE VALUE OF TOKEN'
+#        env:
+#          GITHUB
+
   #package:
   #deploy:
 
