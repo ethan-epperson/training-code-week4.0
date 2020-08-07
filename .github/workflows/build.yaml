@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2.3.1
+      - run: git fetch --unshallow
       - run: dotnet tool install --global dotnet-sonarscanner
       - run: |
           dotnet sonarscanner begin -o:'ethan-epperson' -k:'ethan-epperson_training-code-week4.0' -d:sonar.login='fc4025fdfb1d9417f909c8911891903639b92e49' -d:sonar.host.url='https://sonarcloud.io'
